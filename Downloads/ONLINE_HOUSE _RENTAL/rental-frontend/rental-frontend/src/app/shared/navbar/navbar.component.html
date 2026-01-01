@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <span class="logo">🏠 RentalHub</span>
+  <span class="spacer"></span>
+  <ng-container *ngIf="auth.isAuthenticated()">
+    <span class="role">{{ auth.getUser()?.role | titlecase }}</span>
+    <button mat-button (click)="auth.logout()">Logout</button>
+  </ng-container>
+  <ng-container *ngIf="!auth.isAuthenticated()">
+    <a mat-button routerLink="/auth/login">Login</a>
+  </ng-container>
+</mat-toolbar>
