@@ -1,0 +1,11 @@
+<div class="property-list">
+  <h2>Property List</h2>
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <ul *ngIf="properties && properties.length">
+    <li *ngFor="let property of properties">
+      <strong>{{ property.title }}</strong> - {{ property.location }} - ${{ property.rent }}
+    </li>
+  </ul>
+  <div *ngIf="properties && !properties.length && !loading">No properties found.</div>
+</div>
